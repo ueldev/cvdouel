@@ -1,5 +1,4 @@
 <?php
-    var_dump($_POST);
     $sql = "SELECT * FROM curriculo.sobre WHERE id=1";
 
     try {

@@ -257,7 +257,15 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
+    <?php
+      extract($_GET);
+      require_once('action/conn.php');
+      require_once('action/sobre_update/selectid.php');
+      //exit(var_dump($result));
+      $row = $result->fetch_assoc();
+      //exit(var_dump($row));
+      //var_dump($row);
+    ?>
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -268,129 +276,183 @@
             <div class="card card-primary">
             
               <div class="card-header">
-                <h3 class="card-title">Quick Example</h3>
+                <h3 class="card-title">Resumo</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
             <form action="action/sobre_update/update.php" method="POST">
-                <?php
-                extract($_POST);
-                require_once('action/conn.php');
-                require_once('action/sobre_update/selectid.php');
-                //exit(var_dump($result));
-                $row = $result->fetch_assoc();
-                //exit(var_dump($row));
-                //var_dump($row);
 
-                ?>
                 <div class="card-body">
                     <textarea id="summernote" name="conteudo">
-                    <?php echo($row['conteudo']); ?>
+                      <?php echo($row['conteudo']); ?>
                     </textarea>
-                </div>
-                <!-- /.card-body -->
-                <h4>Basic Information</h4>
-                
-                <div class="input-group mb-3">
+
+                  <h3>Informações</h3>  
+                  <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">Nome</span> 
                   </div>
-                  <input type="text" class="form-control" name="nome" placeholder=<?php echo($row['nome']); ?>>
+                  <input type="text" class="form-control" name="nome" value="<?php echo($row['nome']); ?>">
                 </div>
 
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">Idade</span> 
                   </div>
-                  <input type="text" class="form-control" name="idade" placeholder=<?php echo($row['idade']); ?>>
+                  <input type="text" class="form-control" name="idade" value="<?php echo($row['idade']); ?>">
                 </div>
                   
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                   </div>
-                  <input type="email" class="form-control" name="email" placeholder=<?php echo($row['email']); ?>>
+                  <input type="email" class="form-control" name="email" value="<?php echo($row['email']); ?>">
                 </div>
 
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">Tel.</span>
                   </div>
-                  <input type="text" class="form-control" name="telefone" placeholder=<?php echo($row['telefone']); ?>>
+                  <input type="text" class="form-control" name="telefone" value="<?php echo($row['telefone']); ?>">
                 </div>
                 
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">Ende.</span>
                   </div>
-                  <input type="text" class="form-control" name="endereco" placeholder=<?php echo($row['endereco']); ?>>
+                  <input type="text" class="form-control" name="endereco" value="<?php echo($row['endereco']); ?>">
                 </div>
 
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">Lng.</span>
                   </div>
-                  <input type="text" class="form-control" name="linguagem" placeholder=<?php echo($row['linguagem']); ?>>
+                  <input type="text" class="form-control" name="linguagem" value="<?php echo($row['linguagem']); ?>">
                 </div>
-              
+                </div>
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Atualizar</button>
                 </div>
-            </form>
-              
-
-                </div>
-
-                  </div>
-                  <!-- /btn-group -->
-                  
-                </div>
-                <!-- /input-group -->
-
-                
-                <!-- /input-group -->
-
-                
-                <!-- /input-group -->
+            
+                <!-- informações básicas -->
+            
+            <!-- habilidades -->
+            <div class="card card-danger">
+              <div class="card-header">
+                <h3 class="card-title">SKILLS</h3>
               </div>
-            <!-- /.card -->
+              <br>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-3">
+                    <input type="text" class="form-control" placeholder="Nome da skill." name="skill1" value="<?php echo($row['skill1']); ?>">
+                  </div>
+                  <div class="col-4">
+                    <input type="text" class="form-control" placeholder="0 a 100 nivel de conhecimento." name="nivel1" value="<?php echo($row['nivel1']); ?>" > 
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-3">
+                    <input type="text" class="form-control" placeholder="Nome da skill." name="skill2" value="<?php echo($row['skill2']); ?>">
+                  </div>
+                  <div class="col-4">
+                    <input type="text" class="form-control" placeholder="0 a 100 nivel de conhecimento." name="nivel2" value="<?php echo($row['nivel2']); ?>">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-3">
+                    <input type="text" class="form-control" placeholder="Nome da skill." name="skill3" value="<?php echo($row['skill3']); ?>">
+                  </div>
+                  <div class="col-4">
+                    <input type="text" class="form-control" placeholder="0 a 100 nivel de conhecimento." name="nivel3" value="<?php echo($row['nivel3']); ?>">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-3">
+                    <input type="text" class="form-control" placeholder="Nome da skill." name="skill4" value="<?php echo($row['skill4']); ?>">
+                  </div>
+                  <div class="col-4">
+                    <input type="text" class="form-control" placeholder="0 a 100 nivel de conhecimento." name="nivel4" value="<?php echo($row['nivel4']); ?>">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-3">
+                    <input type="text" class="form-control" placeholder="Nome da skill." name="skill5" value="<?php echo($row['skill5']); ?>">
+                  </div>
+                  <div class="col-4">
+                    <input type="text" class="form-control" placeholder="0 a 100 nivel de conhecimento." name="nivel5" value="<?php echo($row['nivel5']); ?>">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-3">
+                    <input type="text" class="form-control" placeholder="Nome da skill." name="skill6" value="<?php echo($row['skill6']); ?>">
+                  </div>
+                  <div class="col-4">
+                    <input type="text" class="form-control" placeholder="0 a 100 nivel de conhecimento." name="nivel6" value="<?php echo($row['nivel6']); ?>">
+                  </div>
+                </div>
+              </div>
+               <!-- habilidades-->
+            </div>
+            <div class="card-footer">
+              <button type="submit" class="btn btn-primary">Atualizar</button>
+            </div>
+            <div class="card card-danger">
+              <div class="card-header">
+                <h3 class="card-title">SKILLS</h3>
+              </div>
+              <br>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-4">
+                    <input type="text" class="form-control" placeholder="URL DO SEU GITHUB" name="instagram" value="<?php echo($row['instagram']); ?>" > 
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  
+                  <div class="col-4">
+                    <input type="text" class="form-control" placeholder="URL DO SEU LINKEDIN" name="linkedin" value="<?php echo($row['linkedin']); ?>">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  
+                  <div class="col-4">
+                    <input type="text" class="form-control" placeholder="URL DO SEU INSTA" name="github" value="<?php echo($row['github']); ?>">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-4">
+                    <input type="text" class="form-control" placeholder="URL DO YOUTUBE" name="youtube" value="<?php echo($row['youtube']); ?>" > 
+                  </div>
+                </div>
+                <br>
 
-            <!-- general form elements -->
-            
-            <!-- /.card -->
-
-            <!-- Input addon -->
-            
-            <!-- /.card -->
-            <!-- Horizontal Form -->
-            
-            <!-- /.card -->
-
+                
+                
+                
+              </div>
+               <!-- habilidades-->
+            </div>
+            <div class="card-footer">
+              <button type="submit" class="btn btn-primary">Atualizar</button>
+            </div>
+          </form>
           </div>
-          <!--/.col (left) -->
-          <!-- right column -->
           <div class="col-md-6">
             <!-- Form Element sizes -->
             <div class="card card-success">
-              
-              
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
-
-            
-            <!-- /.card -->
-
-            <!-- general form elements disabled -->
-            
-            <!-- /.card -->
-            <!-- general form elements disabled -->
-            
-            <!-- /.card -->
           </div>
-          <!--/.col (right) -->
+
         </div>
-        <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
